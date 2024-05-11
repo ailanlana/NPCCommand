@@ -1,6 +1,7 @@
 package io.fntlv.npccommand.config.npccmd;
 
 import br.com.finalcraft.evernifecore.config.yaml.section.ConfigSection;
+import io.fntlv.npccommand.NPCCommand;
 import io.fntlv.npccommand.config.ConfigManager;
 
 import java.util.ArrayList;
@@ -14,8 +15,14 @@ public class NpcCMDManager {
 
     private static void loadNpcCMD(){
         ConfigSection section = ConfigManager.getMainConfig().getConfigSection("NPCCommands");
+        int line = 0;
         for (String cmdString : section.getOrSetDefaultValue(null, new ArrayList<String>(),"NPC命令")) {
-            addNpcCMD(NpcCMD.deserialize(cmdString));
+            line++;
+            try {
+                addNpcCMD(NpcCMD.deserialize(cmdString));
+            } catch (Exception e){
+                NPCCommand.warn("&c配置文件config节点[NPCCommands]第"+line+"个NPC命令配置出现错误!");
+            }
         }
     }
 

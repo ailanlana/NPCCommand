@@ -19,6 +19,10 @@ public final class NPCCommand extends JavaPlugin {
         inst.getLogger().info("[Info] " + msg.replace("&","§"));
     }
 
+    public static void warn(String msg){
+        inst.getLogger().info("[warn] " + msg.replace("&","§"));
+    }
+
     @Override
     public void onEnable() {
         inst = this;
