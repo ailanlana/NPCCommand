@@ -19,7 +19,7 @@ import java.util.Optional;
 
 public class NPCListener implements ECListener {
 
-    @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f当前实体不属于NPC,无法绑定命令")
+    @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f当前实体为:%name%,不属于NPC,无法绑定命令")
     public static LocaleMessage NO_NPC;
 
     @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f当前NPC名字为: %name%")
@@ -34,9 +34,11 @@ public class NPCListener implements ECListener {
         Entity npc = event.getRightClicked();
         String type = npc.getType().name();
 
-        if (!type.contains("CUSTOMNPCS")) {
+        if (!type.contains("CUSTOMNPCS")&&!type.contains("MOD_CUSTOM")) {
             if (NpcCMDHolder.debugPlayerList.contains(player.getUniqueId())) {
-                NO_NPC.send(player);
+                NO_NPC
+                        .addPlaceholder("%name%",type)
+                        .send(player);
             }
             return;
         }

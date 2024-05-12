@@ -18,7 +18,7 @@ public class ConfigManager {
 
     public static void init(JavaPlugin javaPlugin){
         mainConfig = new Config(javaPlugin,"config.yml",false);
-        mainConfig.setValue("version","1.0.0","版本号,请勿修改");
+        mainConfig.setValue("version","1.0.1","版本号,请勿修改");
         NpcCMDManager.init();
         mainConfig.save();
     }
