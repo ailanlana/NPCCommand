@@ -1,5 +1,6 @@
 package io.fntlv.npccommand;
 
+import br.com.finalcraft.evernifecore.ecplugin.annotations.ECPlugin;
 import br.com.finalcraft.evernifecore.listeners.base.ECListener;
 import br.com.finalcraft.evernifecore.locale.FCLocale;
 import br.com.finalcraft.evernifecore.locale.FCLocaleManager;
@@ -10,6 +11,9 @@ import io.fntlv.npccommand.message.Message;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@ECPlugin(
+        bstatsID = "22035"
+)
 public final class NPCCommand extends JavaPlugin {
 
     private static JavaPlugin inst;
