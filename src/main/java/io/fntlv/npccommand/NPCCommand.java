@@ -2,7 +2,6 @@ package io.fntlv.npccommand;
 
 import br.com.finalcraft.evernifecore.ecplugin.annotations.ECPlugin;
 import br.com.finalcraft.evernifecore.listeners.base.ECListener;
-import br.com.finalcraft.evernifecore.locale.FCLocale;
 import br.com.finalcraft.evernifecore.locale.FCLocaleManager;
 import io.fntlv.npccommand.command.CommandRegister;
 import io.fntlv.npccommand.config.ConfigManager;
@@ -20,11 +19,11 @@ public final class NPCCommand extends JavaPlugin {
     private static boolean enablePAPI;
 
     public static void info(String msg){
-        inst.getLogger().info("[Info] " + msg.replace("&","§"));
+        inst.getLogger().info("[NPCCommand][Info] " + msg.replace("&","§"));
     }
 
     public static void warn(String msg){
-        inst.getLogger().info("[warn] " + msg.replace("&","§"));
+        inst.getLogger().info("[NPCCommand][warn] " + msg.replace("&","§"));
     }
 
     @Override
