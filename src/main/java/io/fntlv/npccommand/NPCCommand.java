@@ -38,7 +38,8 @@ public final class NPCCommand extends JavaPlugin {
         initPAPI();
         ECListener.register(this, NPCListener.class);
         info("&a监听器注册成功");
-        info("&d插件作者: FnTlv QQ:1781872216");
+        info("&f插件作者: &bFnTlv &fQQ: &b1781872216");
+        info("&f插件交流群: &a539651313");
     }
 
     @Override
