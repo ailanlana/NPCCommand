@@ -14,7 +14,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
-import java.util.HashMap;
 import java.util.Optional;
 
 public class NPCListener implements ECListener {

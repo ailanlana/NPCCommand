@@ -31,7 +31,7 @@ public class AdminCommand {
     @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §fNPC: %name% 已经绑定命令: %cmd%&7(%type%)")
     public static LocaleMessage NPC_HAS_COMMAND;
 
-    @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f如果你想覆盖该NPC的命令, &7[&a点击这里&7]")
+    @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f如果你想覆盖该NPC的命令, §7[§a点击这里§7]")
     public static LocaleMessage IF_YOU_WANNA_OVERRIDE_CLICK_HERE;
 
     @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f成功向NPC: %name% 绑定命令: %cmd%&7(%type%)")
