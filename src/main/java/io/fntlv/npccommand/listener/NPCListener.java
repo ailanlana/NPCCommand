@@ -3,12 +3,11 @@ package io.fntlv.npccommand.listener;
 import br.com.finalcraft.evernifecore.listeners.base.ECListener;
 import br.com.finalcraft.evernifecore.locale.FCLocale;
 import br.com.finalcraft.evernifecore.locale.LocaleMessage;
+import br.com.finalcraft.evernifecore.util.FCBukkitUtil;
 import io.fntlv.npccommand.NPCCommand;
 import io.fntlv.npccommand.config.npccmd.NpcCMD;
 import io.fntlv.npccommand.config.npccmd.NpcCMDHolder;
 import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -65,13 +64,12 @@ public class NPCListener implements ECListener {
             if (NPCCommand.isEnablePAPI()){
                 command = PlaceholderAPI.setPlaceholders(player,command);
             }
-            Server server = Bukkit.getServer();
             switch (npcCmd.getCmdType()) {
                 case CONSOLE:
-                    server.dispatchCommand(Bukkit.getConsoleSender(), command);
+                    FCBukkitUtil.makeConsoleExecuteCommand(command);
                     break;
                 case PLAYER:
-                    server.dispatchCommand(player, command);
+                    FCBukkitUtil.makePlayerExecuteCommand(player,command);
                     break;
             }
         });
