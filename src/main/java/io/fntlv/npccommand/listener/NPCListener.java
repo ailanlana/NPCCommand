@@ -4,14 +4,18 @@ import br.com.finalcraft.evernifecore.listeners.base.ECListener;
 import br.com.finalcraft.evernifecore.locale.FCLocale;
 import br.com.finalcraft.evernifecore.locale.LocaleMessage;
 import br.com.finalcraft.evernifecore.util.FCBukkitUtil;
+import br.com.finalcraft.evernifecore.util.FCInventoryUtil;
+import br.com.finalcraft.evernifecore.util.FCItemUtils;
 import io.fntlv.npccommand.NPCCommand;
 import io.fntlv.npccommand.config.npccmd.NpcCMD;
 import io.fntlv.npccommand.config.npccmd.NpcCMDHolder;
+import io.fntlv.npccommand.util.NPCUtil;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Optional;
 
@@ -19,6 +23,9 @@ public class NPCListener implements ECListener {
 
     @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f当前实体为:%name%,不属于NPC,无法绑定命令")
     public static LocaleMessage NO_NPC;
+
+    @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f你正在使用NPCMOD物品,为避免影响你使用NPC魔杖等物品,已暂停执行命令!")
+    public static LocaleMessage USE_NPC_ITEM;
 
     @FCLocale(lang = "ZH_CN",text = "§7[§6NPC命令§7] §f当前NPC名字为: %name%")
     public static LocaleMessage NPC_NAME;
@@ -38,6 +45,15 @@ public class NPCListener implements ECListener {
                         .addPlaceholder("%name%",type)
                         .send(player);
             }
+            return;
+        }
+        ItemStack playersHeldItem = FCBukkitUtil.getPlayersHeldItem(player);
+
+        // 如果是NPCMOD的物品咋跳过执行
+        // 主要是为了不影响NPC魔杖等使用
+        if (playersHeldItem != null && NPCUtil.isNPCItem(playersHeldItem)){
+            USE_NPC_ITEM
+                    .send(player);
             return;
         }
 

@@ -1,5 +1,5 @@
 name: NPCCommand
-version: '1.0.2'
+version: '1.0.3'
 author: FnTlv
 main: io.fntlv.npccommand.NPCCommand
 softdepend: [PlaceholderAPI]
